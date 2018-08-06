@@ -8,6 +8,9 @@ class TriCount{
 	}
 
 
+	/*
+	* function to test if the number of triangles is not above on bilion
+	*/
 	exceedsMaxCount(trianglesCount){
 
 		if (trianglesCount > 1000000000) {
@@ -18,12 +21,20 @@ class TriCount{
 	}
 
 
+	/*
+	* function to call the count function
+	*/
 	get resultCount() {
     	return this.count();
   	}
 
+
+  	/*
+  	* function that returns the number of possible unique triangles given an interval of side length
+  	*/
 	count(){
 
+		// test if minLength and maxLength are integers
 		if (Number.isInteger(this.minLength) === false || Number.isInteger(this.maxLength) === false) {
 			return false;
 		}
@@ -57,8 +68,7 @@ class TriCount{
 					biggestSide ++;
 				}
 
-				// at the end of the while loop we get the size of the biggest tlength possible with the other sides being i and j
-
+				// At the end of the while loop we get the size of the biggest length possible with the other sides being i and j
 				// It mean that we have biggestSide minus j triangles possibles with i and j fixed
 				trianglesCount += biggestSide - j;
 				if (this.exceedsMaxCount(trianglesCount)) {
