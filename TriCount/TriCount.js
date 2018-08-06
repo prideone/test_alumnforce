@@ -24,6 +24,10 @@ class TriCount{
 
 	count(){
 
+		if (Number.isInteger(this.minLength) === false || Number.isInteger(this.maxLength) === false) {
+			return false;
+		}
+
 		// Test the constraints for the size of the interval
 		if (this.minLength < 1 || this.maxLength > 1000000) {
 			return false;

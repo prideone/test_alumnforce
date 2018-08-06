@@ -16,4 +16,16 @@ describe("Class to count triangles", function() {
 		var countThree = triCountThree.resultCount;
   		expect(countThree).toBe(-1);
 	});
+
+	it("Should obtain false because minLength is greater than maxLength", function() {
+		const triCountFour = new TriCount(10, 8);
+		var countFour = triCountFour.resultCount;
+  		expect(countFour).toBe(false);
+	});
+
+	it("Should obtain false because minLength not a integer", function() {
+		const triCountFive = new TriCount('a', 8);
+		var countFive = triCountFive.resultCount;
+  		expect(countFive).toBe(false);
+	});
 });
