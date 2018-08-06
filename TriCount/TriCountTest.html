@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="jasmine-all-min.js"></script>
+	<script src="TriCount.js"></script>
+	<script src="TriCountTest.js"></script>
+
+	<script type="text/javascript">
+		// testing structure using the library jasmine
+		(function () {
+	    	var jasmineEnv = jasmine.getEnv();
+	      	jasmineEnv.updateInterval = 250
+
+	      	var htmlReporter = new jasmine.HtmlReporter();
+	      	jasmineEnv.addReporter(htmlReporter);
+	      	jasmineEnv.specFilter = function (spec) {
+	        	return htmlReporter.specFilter(spec);
+	      	};
+
+	      	function execJasmine() {
+	        	jasmineEnv.execute();
+	      	}
+
+	      	var currentWindowOnload = window.onload;
+	      	window.onload = function () {
+	        	if (currentWindowOnload) {
+	          		currentWindowOnload();
+	        	}
+
+	        	document.querySelector('.version').innerHTML = jasmineEnv.versionString();
+	        	execJasmine();
+	    	};
+
+	  	})();
+	</script>
+</head>
+<body>
+
+</body>
+</html>
